@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script>
+      function removeChild(childId) {
+        document.getElementById("div" + childId).remove;
+      }
+
+      let a = 0;
+      function addMore() {
+        const pDiv = document.getElementById("parentDiv");
+        const newChild = document.createElement("div");
+        newChild.id = "div" + a;
+        const newFruit = document.getElementById("fruitName").value;
+        newChild.innerText = newFruit;
+
+        pDiv.append(newChild);
+        const removeButton = document.createElement("button");
+        removeButton.id = a;
+        removeButton.innerText = "X";
+        removeButton.addEventListener("click", (event) => {
+          document.getElementById("div" + event.target.id).remove();
+          document.getElementById(event.target.id).remove();
+        });
+        pDiv.append(removeButton);
+
+        a += 1;
+      }
+    </script>
+  </head>
+  <body>
+    <div id="parentDiv"></div>
+    Enter the fruit name : <input type="text" id="fruitName" />
+    <button onclick="addMore()">Add more</button>
+  </body>
+</html>
